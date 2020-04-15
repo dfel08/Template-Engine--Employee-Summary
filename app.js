@@ -134,7 +134,7 @@ function createManager() {
 }
 
 function finish() {
-    fs.writeFile(outputPath, render(employees));
+    fs.writeFileSync(outputPath, render(employees));
 }
 
 start();
