@@ -69,6 +69,7 @@ function createEngineer() {
         .then(response => {
             let newEngineer = new Engineer(response.name, response.email, response.id, response.github)
             employees.push(newEngineer);
+            start();
         })
 }
 
@@ -98,6 +99,7 @@ function createIntern() {
         .then(response => {
             let newIntern = new Intern(response.name, response.email, response.id, response.school)
             employees.push(newIntern);
+            start();
         })
 }
 
@@ -127,11 +129,12 @@ function createManager() {
         .then(response => {
             let newManager = new Manager(response.name, response.email, response.id, response.officeNumber)
             employees.push(newManager);
+            start();
         })
 }
 
 function finish() {
-    fs.writeFileSync(outputPath, render(employees));
+    fs.writeFile(outputPath, render(employees));
 }
 
 start();
